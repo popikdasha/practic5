@@ -14,13 +14,11 @@ namespace practic5
         {
             InitializeComponent();
 
-            // Заполняем ComboBox категориями
-            CategoryComboBox.ItemsSource = shopDbDataSet.Categories;
+                        CategoryComboBox.ItemsSource = shopDbDataSet.Categories;
             CategoryComboBox.SelectedValuePath = "CategoryId";
             CategoryComboBox.DisplayMemberPath = "CategoryName";
 
-            // Устанавливаем начальные значения
-            ProductNameTextBox.Text = productName;
+                        ProductNameTextBox.Text = productName;
             PriceTextBox.Text = price.ToString("0.00");
 
             if (categoryId.HasValue)
@@ -31,8 +29,7 @@ namespace practic5
 
         private void OK_Click(object sender, RoutedEventArgs e)
         {
-            // Валидация данных
-            if (string.IsNullOrWhiteSpace(ProductNameTextBox.Text))
+                        if (string.IsNullOrWhiteSpace(ProductNameTextBox.Text))
             {
                 MessageBox.Show("Название продукта не может быть пустым", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;

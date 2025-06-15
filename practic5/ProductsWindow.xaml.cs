@@ -26,14 +26,11 @@ namespace practic5
             productsTableAdapter.Fill(shopDbDataSet.Products);
             categoriesTableAdapter.Fill(shopDbDataSet.Categories);
 
-            // 1. Проверяем существование колонки CategoryName
-            if (!shopDbDataSet.Products.Columns.Contains("CategoryName"))
+                        if (!shopDbDataSet.Products.Columns.Contains("CategoryName"))
             {
-                // 2. Используем правильное имя отношения (обычно оно начинается с FK_)
-                string relationName = FindRelationName();
+                                string relationName = FindRelationName();
 
-                // 3. Добавляем вычисляемую колонку
-                shopDbDataSet.Products.Columns.Add(
+                                shopDbDataSet.Products.Columns.Add(
                     "CategoryName",
                     typeof(string),
                     $"Parent({relationName}).CategoryName");
@@ -44,8 +41,7 @@ namespace practic5
 
         private string FindRelationName()
         {
-            // Поиск имени отношения между таблицами
-            foreach (DataRelation relation in shopDbDataSet.Relations)
+                        foreach (DataRelation relation in shopDbDataSet.Relations)
             {
                 if (relation.ParentTable == shopDbDataSet.Categories &&
                     relation.ChildTable == shopDbDataSet.Products)

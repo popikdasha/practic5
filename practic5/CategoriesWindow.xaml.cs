@@ -80,8 +80,7 @@ namespace practic5
 
             try
             {
-                // Проверяем, есть ли продукты в этой категории
-                var productsTableAdapter = new ShopDbDataSetTableAdapters.ProductsTableAdapter();
+                                var productsTableAdapter = new ShopDbDataSetTableAdapters.ProductsTableAdapter();
                 var products = productsTableAdapter.GetData().Where(p => p.CategoryId == categoryId);
 
                 if (products.Any())
